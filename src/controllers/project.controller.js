@@ -30,7 +30,7 @@ const findProjectForUser = async (projectId, user) => {
   return project;
 };
 
-// POST /api/projects any user
+// POST /projects any user
 exports.createProject = async (req, res) => {
   try {
     const { name, description, status } = req.body;
@@ -47,7 +47,7 @@ exports.createProject = async (req, res) => {
   }
 };
 
-// GET /api/projects
+// GET /projects
 exports.listProjects = async (req, res) => {
   try {
     
@@ -63,7 +63,7 @@ exports.listProjects = async (req, res) => {
   }
 };
 
-// GET /api/projects/:id
+// GET /projects/:id
 exports.getProject = async (req, res) => {
   try {
     const project = await findProjectForUser(req.params.id, req.user);
@@ -74,7 +74,7 @@ exports.getProject = async (req, res) => {
   }
 };
 
-// PUT /api/projects/:id
+// PUT /projects/:id
 exports.updateProject = async (req, res) => {
   try {
     const project = await findProjectForUser(req.params.id, req.user);
@@ -91,7 +91,7 @@ exports.updateProject = async (req, res) => {
   }
 };
 
-// DELETE /api/projects/:id
+// DELETE /projects/:id
 exports.deleteProject = async (req, res) => {
   try {
     const project = await findProjectForUser(req.params.id, req.user);
