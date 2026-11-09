@@ -3,9 +3,9 @@ une API REST permettant à des utilisateurs authentifiés de gérer leurs projet
 
 Salim Mgaidi 1er  ISIDS
 
+Project Architecture
 
-
-projects-api/
+project-api/
 ├── .env                  (local only, not committed)
 ├── .env.example
 ├── .gitignore
