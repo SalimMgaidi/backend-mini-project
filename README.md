@@ -36,3 +36,9 @@ project-api/
         ├── ApiError.js
         ├── asyncHandler.js
         └── buildListQuery.js     search, filter, sort, pagination
+
+
+Api Routes 
+
+/auth/register --> register a user 
+/auth/login   --> to login a user(normal user or manager) with a valid jwt token 
