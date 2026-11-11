@@ -9,17 +9,17 @@ API REST permettant à des utilisateurs authentifiés de gérer leurs projets et
 ## Project Architecture
 
 ```
-project-api/
-├── .env                  (local only, not committed)
-├── .env.example
+backend-mini-project/
+├── .env                    (local only, not committed)
 ├── .gitignore
 ├── package.json
+├── package-lock.json
 ├── README.md
-├── server.js             entry point: loads .env, connects the DB, starts the server
+├── server.js
 └── src/
-    ├── app.js            Express setup (middlewares, routes, error handling)
+    ├── app.js
     ├── config/
-    │   └── db.js         MongoDB connection
+    │   └── db.js
     ├── models/
     │   ├── User.js
     │   ├── Project.js
@@ -33,13 +33,11 @@ project-api/
     │   ├── project.routes.js
     │   └── task.routes.js
     ├── middlewares/
-    │   ├── auth.js               protect (JWT check) and authorize (roles)
-    │   ├── validateObjectId.js
-    │   └── errorHandler.js       notFound and errorHandler
+    │   ├── auth.js
+    │   └── ValidateObjectId.js
     └── utils/
         ├── ApiError.js
-        ├── asyncHandler.js
-        └── buildListQuery.js     search, filter, sort, pagination
+        └── handleError.js
 ```
 
 ## API Routes
