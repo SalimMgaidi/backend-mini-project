@@ -66,3 +66,5 @@ Base URL: `http://localhost:3000`
 - `GET /tasks/:id`: get task
 - `PUT /tasks/:id`: update task
 - `DELETE /tasks/:id`: delete task
+
+## Functional Testing:
