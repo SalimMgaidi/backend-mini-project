@@ -6,3 +6,6 @@ class ApiError extends Error {
 }
 
 module.exports = ApiError;
+
+
+//built to get more request error informations like status code and the error messages

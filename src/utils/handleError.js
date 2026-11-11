@@ -1,5 +1,5 @@
 // controller handler
-
+const ApiError = require('./ApiError');
 
 const handleError = (res, err) => {
   if (err instanceof ApiError) {
@@ -12,3 +12,6 @@ const handleError = (res, err) => {
   console.error(err);
   res.status(500).json({ success: false, message: 'Server error' });
 };
+
+
+module.exports = handleError;

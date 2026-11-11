@@ -5,8 +5,8 @@ const {
   getProject,
   updateProject,
   deleteProject,
-}
- = require('../controllers/project.controller');
+} = require('../controllers/project.controller');
+const { createTask, listProjectTasks } = require('../controllers/task.controller');
 const { protect } = require('../middlewares/auth');
 const validateObjectId = require('../middlewares/validateObjectId');
 
@@ -21,5 +21,11 @@ router
   .get(validateObjectId('id'), getProject)
   .put(validateObjectId('id'), updateProject)
   .delete(validateObjectId('id'), deleteProject);
+
+// related tasks
+router
+  .route('/:projectId/tasks')
+  .post(validateObjectId('projectId'), createTask)
+  .get(validateObjectId('projectId'), listProjectTasks);
 
 module.exports = router;
