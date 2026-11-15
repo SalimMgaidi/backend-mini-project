@@ -67,4 +67,14 @@ Base URL: `http://localhost:3000`
 - `PUT /tasks/:id`: update task
 - `DELETE /tasks/:id`: delete task
 
+## Technologies Used
+
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Mongoose
+- JWT Authentication
+- bcryptjs
+- Bruno (API Testing)
+
 ## Functional Testing:
