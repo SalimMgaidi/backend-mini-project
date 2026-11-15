@@ -67,6 +67,12 @@ Base URL: `http://localhost:3000`
 - `PUT /tasks/:id`: update task
 - `DELETE /tasks/:id`: delete task
 
+### Search and sort
+
+- `?search=api`: search
+- `?status=done`: filter by status
+- `?sort=name` or `?sort=-createdAt`: sort
+
 ## Technologies Used
 
 - Node.js
@@ -78,3 +84,11 @@ Base URL: `http://localhost:3000`
 - Bruno (API Testing)
 
 ## Functional Testing:
+
+All endpoints were tested manually with Bruno and passed.
+
+- Auth: register, login, current user, invalid credentials, missing or invalid token
+- Projects: create, list, get, update, delete, validation errors, access control
+- Tasks: create, list, get, update, delete, status validation, manager-only assignment
+- Search, filter and sort on projects and tasks
+- Deleting a project deletes its tasks
