@@ -2,6 +2,7 @@ const Project = require('../models/Project');
 const Task = require('../models/Task');
 const ApiError = require('../utils/ApiError');
 const handleError = require('../utils/handleError');
+const buildListQuery = require('../utils/buildListQuery');
 
 
 
@@ -34,14 +35,22 @@ exports.createProject = async (req, res) => {
   }
 };
 
-// GET /projects
+
+// GET /projects?search=&status=&sort=
 exports.listProjects = async (req, res) => {
   try {
     
-    const filter = req.user.role === 'manager' ? {} : { owner: req.user._id }; // normal user can only get his projects
+    const { filter, sort } = buildListQuery(req.query, {
+      searchFields: ['name', 'description'],
+      sortFields: ['name', 'status', 'createdAt'],
+      filterFields: ['status'],
+    });
+
+  
+    if (req.user.role !== 'manager') filter.owner = req.user._id;
 
     const projects = await Project.find(filter)
-      .sort({ createdAt: -1 })
+      .sort(sort)
       .populate('owner', 'name email');
 
     res.json({ success: true, count: projects.length, data: projects });
