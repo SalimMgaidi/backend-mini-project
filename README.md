@@ -11,6 +11,7 @@ API REST permettant à des utilisateurs authentifiés de gérer leurs projets et
 ```
 backend-mini-project/
 ├── .env                    (local only, not committed)
+├── .env.example
 ├── .gitignore
 ├── package.json
 ├── package-lock.json
@@ -37,7 +38,9 @@ backend-mini-project/
     │   └── ValidateObjectId.js
     └── utils/
         ├── ApiError.js
-        └── handleError.js
+        ├── handleError.js
+        └── buildListQuery.js
+
 ```
 
 ## API Routes
@@ -83,6 +86,10 @@ Base URL: `http://localhost:3000`
 - bcryptjs
 - Bruno (API Testing)
 
+## Notes
+
+- The `login` field of the User schema is replaced by `email`.
+
 ## Functional Testing:
 
 All endpoints were tested manually with Bruno and passed.
@@ -92,3 +99,12 @@ All endpoints were tested manually with Bruno and passed.
 - Tasks: create, list, get, update, delete, status validation, manager-only assignment
 - Search, filter and sort on projects and tasks
 - Deleting a project deletes its tasks
+
+## Installation
+
+```
+npm install
+cp .env.example .env
+npm run dev
+
+```
